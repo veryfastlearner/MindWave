@@ -1,0 +1,78 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 64px;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.hero-description {
+  font-size: 20px;
+  color: var(--text-main);
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-explore {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 99px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.btn-explore:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 140, 122, 0.3);
+}
+
+.btn-join {
+  background-color: white;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  padding: 14px 28px;
+  border-radius: 99px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-join:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

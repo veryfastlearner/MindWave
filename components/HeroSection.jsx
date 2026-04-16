@@ -1,29 +1,24 @@
-import { Brain, Heart, MessageSquare } from 'lucide-react'
+import { ArrowRight } from 'lucide-react';
+import './HeroSection.css';
 
 export default function HeroSection() {
   return (
-    <header className="hero">
-      <div className="hero-content">
-        <span className="badge">SUP'COM × EDUCARE</span>
+    <section className="hero-section">
+      <h1 className="hero-title">MindWave</h1>
+      <p className="hero-description">
+        Navigating academic pressure shouldn't feel like a solo journey.
+        Untangle your thoughts, manage anxiety, and reclaim your mental
+        clarity with our AI-driven student support hub.
+      </p>
 
-        <h1>MindWave</h1>
-        <p className="subtitle">Healthy Minds, Healthy Futures</p>
-
-        <p>
-          Une initiative étudiante dédiée à la santé mentale en milieu académique
-        </p>
-
-        <div className="buttons">
-          <button>
-            <Heart size={18} /> En savoir plus
-          </button>
-          <button className="outline">
-            <MessageSquare size={18} /> Nous contacter
-          </button>
-        </div>
+      <div className="hero-buttons">
+        <button className="btn-explore">
+          Explore Support Tools <ArrowRight size={18} />
+        </button>
+        <button className="btn-join">
+          Join the MindLab
+        </button>
       </div>
-
-      <Brain size={200} />
-    </header>
+    </section>
   )
 }

@@ -1,0 +1,140 @@
+.program-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.program-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.program-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.program-title {
+  font-size: 42px;
+  color: var(--text-heading);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.program-subtitle {
+  font-size: 18px;
+  color: var(--text-main);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.program-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  background-color: var(--badge-bg);
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-heading);
+}
+
+.feature-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feature-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.feature-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.highlight-bg {
+  background-color: #d8eadd;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.highlight-bg-light {
+  background-color: #eaf3ed;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
+.program-visual {
+  position: relative;
+  width: 100%;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.program-image {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.quote-box {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: white;
+  padding: 32px;
+  border-radius: 0 32px 0 0;
+  max-width: 320px;
+  box-shadow: 10px -10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.quote-author {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .program-container {
+    grid-template-columns: 1fr;
+  }
+}
