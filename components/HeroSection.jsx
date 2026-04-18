@@ -12,12 +12,12 @@ export default function HeroSection() {
       </p>
 
       <div className="hero-buttons">
-        <button className="btn-explore">
-          Explore Support Tools <ArrowRight size={18} />
-        </button>
-        <button className="btn-join">
-          Join the MindLab
-        </button>
+        <a href="https://scoreboard-2-production.up.railway.app/" target="_blank" rel="noopener noreferrer" className="btn-explore">
+          Submit your Idea <ArrowRight size={18} />
+        </a>
+        <a href="https://scoreboard-2-production.up.railway.app/leaderboard-ui" target="_blank" rel="noopener noreferrer" className="btn-join">
+          View Leaderboard
+        </a>
       </div>
     </section>
   )

@@ -18,8 +18,8 @@ export default function ProgramSection() {
                 <Calendar size={20} />
               </div>
               <div className="feature-text-block">
-                <h3 className="feature-title highlight-bg">MindLab Event: April 5th</h3>
-                <p className="feature-desc highlight-bg-light">
+                <h3 className="feature-title">MindLab Event: April 5th</h3>
+                <p className="feature-desc">
                   Join us for a day of intensive workshops, student-led discussions, and collaborative problem-solving focused on academic well-being.
                 </p>
               </div>
@@ -30,8 +30,8 @@ export default function ProgramSection() {
                 <Users size={20} />
               </div>
               <div className="feature-text-block">
-                <h3 className="feature-title highlight-bg">Student Engagement</h3>
-                <p className="feature-desc highlight-bg-light">
+                <h3 className="feature-title">Student Engagement</h3>
+                <p className="feature-desc">
                   We believe the best solutions come from those in the trenches. Our program is built on direct student feedback and active participation.
                 </p>
               </div>
@@ -42,7 +42,7 @@ export default function ProgramSection() {
                 <Zap size={20} />
               </div>
               <div className="feature-text-block">
-                <h3 className="feature-title highlight-bg">Action-Oriented Results</h3>
+                <h3 className="feature-title">Action-Oriented Results</h3>
                 <p className="feature-desc">
                   No more vague advice. We provide concrete tools and strategies that deliver measurable improvements in mental fatigue and anxiety levels.
                 </p>

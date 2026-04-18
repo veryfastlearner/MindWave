@@ -5,6 +5,10 @@ export default function TeamSection() {
   const members = [
     { name: 'Chedi Ben Salem' },
     { name: 'Ahmed Ben Mim' },
+    { name: 'Taki Allah BENALI' },
+    { name: 'Abderrahmen BENSASSI' },
+    { name: 'Rana BEN SALEM' },
+    { name: 'Ahmed Rayen BEN HASSINE' },
   ]
 
   return (

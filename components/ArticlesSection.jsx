@@ -1,24 +1,21 @@
+import { Link } from 'react-router-dom';
 import './ArticlesSection.css';
 
 export default function ArticlesSection() {
   const articles = [
     {
-      title: "Understanding Mental Fatigue in Students",
-      date: "Oct 12, 2023",
-      excerpt: "Deep dive into the causes of academic burnout and how to identify early warning signs.",
-      tag: "Research"
+      title: "AI in Mental Health Support",
+      date: "Apr 16, 2026",
+      excerpt: "A comprehensive overview of the roles, capabilities, and research evidence for AI companions in mental healthcare.",
+      tag: "Research & Evidence",
+      link: "/article/ai-mental-health"
     },
     {
-      title: "The Role of AI in Student Support",
-      date: "Sep 28, 2023",
-      excerpt: "How machine learning is helping students manage their daily academic pressure and mental clarity.",
-      tag: "Technology"
-    },
-    {
-      title: "Mindfulness Practices for Exams",
-      date: "Sep 15, 2023",
-      excerpt: "Simple techniques to stay grounded and focused during the most stressful times of the year.",
-      tag: "Well-being"
+      title: "Déstigmatiser la Santé Mentale",
+      date: "Apr 18, 2026",
+      excerpt: "Axes concrets pour briser les tabous et intégrer intelligemment le soutien psychologique au quotidien des étudiants.",
+      tag: "Contribution Psychologique",
+      link: "/article/destigmatization"
     }
   ];
 
@@ -35,7 +32,7 @@ export default function ArticlesSection() {
               <p className="article-date">{article.date}</p>
               <h3 className="article-heading">{article.title}</h3>
               <p className="article-excerpt">{article.excerpt}</p>
-              <a href="#" className="read-more">Read More →</a>
+              <Link to={article.link} className="read-more">Read More →</Link>
             </article>
           ))}
         </div>
