@@ -18,9 +18,9 @@ export default function ProgramSection() {
                 <Calendar size={20} />
               </div>
               <div className="feature-text-block">
-                <h3 className="feature-title">MindLab Event: April 5th</h3>
+                <h3 className="feature-title">MindLab Event: April 18th - IPEST</h3>
                 <p className="feature-desc">
-                  Join us for a day of intensive workshops, student-led discussions, and collaborative problem-solving focused on academic well-being.
+                  Join us at IPEST for a day of intensive workshops, student-led discussions, and collaborative problem-solving focused on academic well-being.
                 </p>
               </div>
             </div>

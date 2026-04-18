@@ -16,6 +16,13 @@ export default function ArticlesSection() {
       excerpt: "Axes concrets pour briser les tabous et intégrer intelligemment le soutien psychologique au quotidien des étudiants.",
       tag: "Contribution Psychologique",
       link: "/article/destigmatization"
+    },
+    {
+      title: "Les Bases de la Santé Mentale",
+      date: "Apr 18, 2026",
+      excerpt: "Guide fondamental sur l'équilibre psychologique, les types de troubles et les 10 règles d'or de la santé mentale.",
+      tag: "Guide Fondamental",
+      link: "/article/mental-health-basics"
     }
   ];
 
