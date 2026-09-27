@@ -55,7 +55,7 @@ export default function Header() {
 
         <button
           ref={hamburgerRef}
-          className="hamburger-btn"
+          className={`hamburger-btn ${isMobileMenuOpen ? 'is-open' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-menu"
@@ -63,29 +63,36 @@ export default function Header() {
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        {isMobileMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            id="mobile-menu"
-            className="mobile-menu-overlay"
-            onClick={(e) => e.target === e.currentTarget && closeMobileMenu()}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-          >
-            <nav className="mobile-menu">
-              {navLinks.map((link, i) => (
-                <MobileNavLink
-                  key={i}
-                  {...link}
-                  onClick={closeMobileMenu}
-                />
-              ))}
-            </nav>
-          </div>
-        )}
       </div>
+
+      {isMobileMenuOpen && (
+        <div
+          ref={mobileMenuRef}
+          id="mobile-menu"
+          className="mobile-menu-overlay"
+          onClick={(e) => e.target === e.currentTarget && closeMobileMenu()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <nav className="mobile-menu">
+            <button
+              className="mobile-menu-close"
+              onClick={closeMobileMenu}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+            {navLinks.map((link, i) => (
+              <MobileNavLink
+                key={i}
+                {...link}
+                onClick={closeMobileMenu}
+              />
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
