@@ -1,9 +1,37 @@
 .hero-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 120px 20px 80px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -20%;
+  z-index: -2;
+  background: radial-gradient(ellipse at center, var(--hero-bg-start) 0%, var(--hero-bg-end) 70%);
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.tunnel-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -16,40 +44,49 @@
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 32px;
+  display: inline-block;
 }
 
 .hero-title {
-  font-size: 64px;
+  font-size: clamp(36px, 8vw, 64px);
   margin-bottom: 24px;
   letter-spacing: -1px;
+  line-height: 1.1;
 }
 
 .hero-description {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   color: var(--text-main);
   max-width: 650px;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
 }
 
 .hero-buttons {
   display: flex;
   gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-explore,
+.btn-join {
+  padding: 14px 28px;
+  border-radius: 99px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  will-change: transform;
 }
 
 .btn-explore {
   background-color: var(--primary);
   color: white;
   border: none;
-  padding: 14px 28px;
-  border-radius: 99px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
 }
 
 .btn-explore:hover {
@@ -62,12 +99,6 @@
   background-color: white;
   color: #1e293b;
   border: 1px solid #e2e8f0;
-  padding: 14px 28px;
-  border-radius: 99px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
 }
 
 .btn-join:hover {
@@ -75,4 +106,14 @@
   border-color: #cbd5e1;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg,
+  .tunnel-vignette,
+  .btn-explore,
+  .btn-join {
+    animation: none !important;
+    transition: none !important;
+  }
 }

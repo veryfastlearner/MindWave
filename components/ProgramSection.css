@@ -1,5 +1,5 @@
 .program-section {
-  padding: 80px 20px;
+  padding: 100px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
 }
 
 .program-content {
@@ -17,14 +17,15 @@
 }
 
 .program-title {
-  font-size: 42px;
+  font-size: clamp(28px, 4vw, 42px);
   color: var(--text-heading);
   margin-bottom: 16px;
   letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 .program-subtitle {
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   color: var(--text-main);
   margin-bottom: 40px;
   line-height: 1.6;
@@ -40,6 +41,7 @@
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  perspective: 1000px;
 }
 
 .feature-icon {
@@ -52,6 +54,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-heading);
+  flex-shrink: 0;
 }
 
 .feature-text-block {
@@ -62,20 +65,17 @@
 
 .feature-title {
   font-family: var(--font-serif);
-  font-size: 20px;
+  font-size: clamp(18px, 2vw, 20px);
   font-weight: 700;
   margin-bottom: 8px;
   line-height: 1.2;
 }
 
 .feature-desc {
-  font-size: 15px;
+  font-size: clamp(14px, 1.5vw, 15px);
   line-height: 1.5;
   color: #475569;
 }
-
-
-
 
 .program-visual {
   position: relative;
@@ -100,8 +100,8 @@
 
 .quote-box {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
   background-color: white;
   padding: 32px;
   border-radius: 0 32px 0 0;
@@ -111,7 +111,7 @@
 
 .quote-text {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: clamp(18px, 2vw, 22px);
   color: var(--primary);
   margin-bottom: 12px;
   line-height: 1.4;
@@ -126,5 +126,31 @@
 @media (max-width: 900px) {
   .program-container {
     grid-template-columns: 1fr;
+  }
+  
+  .program-visual {
+    order: -1;
+  }
+  
+  .quote-box {
+    position: static;
+    border-radius: 0 0 32px 32px;
+    box-shadow: none;
+    padding: 24px;
+    background: var(--badge-bg);
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-item,
+  .feature-icon,
+  .feature-title,
+  .feature-desc,
+  .image-wrapper,
+  .quote-box {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }

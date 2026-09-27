@@ -1,8 +1,36 @@
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { NavHashLink as HashLink } from 'react-router-hash-link';
+import { Menu, X } from 'lucide-react';
 import './Header.css';
 
 export default function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) &&
+          hamburgerRef.current && !hamburgerRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  const navLinks = [
+    { label: 'Nos Objectifs', href: '/#objectifs', isHash: true },
+    { label: 'Notre Équipe', href: '/#equipe', isHash: true },
+    { label: 'Our Articles', href: '/#articles', isHash: true },
+    { label: 'Submit Idea', href: 'https://scoreboard-2-production.up.railway.app/', isExternal: true },
+    { label: 'Leaderboard', href: 'https://scoreboard-2-production.up.railway.app/leaderboard-ui', isExternal: true },
+  ];
+
   return (
     <header className="site-header">
       <div className="header-container">
@@ -15,18 +43,86 @@ export default function Header() {
           <span className="logo-text">MindWave</span>
         </Link>
         
-        <nav className="main-nav">
-          <HashLink smooth to="/#objectifs">Nos Objectifs</HashLink>
-          <HashLink smooth to="/#equipe">Notre Équipe</HashLink>
-          <HashLink smooth to="/#articles">Our Articles</HashLink>
-          <a href="https://scoreboard-2-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Submit Idea</a>
-          <a href="https://scoreboard-2-production.up.railway.app/leaderboard-ui" target="_blank" rel="noopener noreferrer">Leaderboard</a>
+        <nav className="main-nav" aria-label="Main navigation">
+          {navLinks.map((link, i) => (
+            <MobileNavLink
+              key={i}
+              {...link}
+              onClick={closeMobileMenu}
+            />
+          ))}
         </nav>
-        
-        <div className="header-actions">
-          {/* Actions removed as per simplification request */}
-        </div>
+
+        <button
+          ref={hamburgerRef}
+          className="hamburger-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {isMobileMenuOpen && (
+          <div
+            ref={mobileMenuRef}
+            id="mobile-menu"
+            className="mobile-menu-overlay"
+            onClick={(e) => e.target === e.currentTarget && closeMobileMenu()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+          >
+            <nav className="mobile-menu">
+              {navLinks.map((link, i) => (
+                <MobileNavLink
+                  key={i}
+                  {...link}
+                  onClick={closeMobileMenu}
+                />
+              ))}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
+  );
+}
+
+function MobileNavLink({ label, href, isHash, isExternal, onClick }) {
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mobile-nav-link"
+        onClick={onClick}
+      >
+        {label}
+      </a>
+    );
+  }
+  if (isHash) {
+    return (
+      <HashLink
+        smooth
+        to={href}
+        className="mobile-nav-link"
+        onClick={onClick}
+      >
+        {label}
+      </HashLink>
+    );
+  }
+  return (
+    <Link
+      to={href}
+      className="mobile-nav-link"
+      onClick={onClick}
+    >
+      {label}
+    </Link>
   );
 }

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import './ArticlesSection.css';
 
 export default function ArticlesSection() {
+  const prefersReducedMotion = useReducedMotion();
   const articles = [
     {
       title: "AI in Mental Health Support",
@@ -26,6 +28,21 @@ export default function ArticlesSection() {
     }
   ];
 
+  const cardVariants = prefersReducedMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.3 } }
+      }
+    : {
+        hidden: { opacity: 0, x: -60, filter: 'blur(8px)' },
+        visible: { 
+          opacity: 1, 
+          x: 0, 
+          filter: 'blur(0px)', 
+          transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } 
+        }
+      };
+
   return (
     <section className="articles-section" id="articles">
       <div className="articles-container">
@@ -34,13 +51,21 @@ export default function ArticlesSection() {
         
         <div className="articles-grid">
           {articles.map((article, index) => (
-            <article key={index} className="article-card">
+            <motion.article
+              key={index}
+              className="article-card"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={cardVariants}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <div className="article-tag">{article.tag}</div>
               <p className="article-date">{article.date}</p>
               <h3 className="article-heading">{article.title}</h3>
               <p className="article-excerpt">{article.excerpt}</p>
               <Link to={article.link} className="read-more">Read More →</Link>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
